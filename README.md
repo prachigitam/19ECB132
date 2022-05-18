@@ -7,3 +7,5 @@ insertion sort [https://github.com/prachigitam/19ECB132/blob/510d37591048ecde5f3
 lettercount [https://github.com/prachigitam/19ECB132/blob/7871144d04c5054565a94e6c3f72b58486cd5de5/lettercount.c
 
 add array [https://github.com/prachigitam/19ECB132/blob/ec3ecc03ce766e5ecef7a3798c4683f40324988f/addarray.c
+
+deletearray [https://github.com/prachigitam/19ECB132/blob/69c986e62a0e654d034dc9e60de2676ef602a219/deletearray.c
