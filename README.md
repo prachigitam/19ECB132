@@ -9,3 +9,5 @@ lettercount [https://github.com/prachigitam/19ECB132/blob/7871144d04c5054565a94e
 add array [https://github.com/prachigitam/19ECB132/blob/ec3ecc03ce766e5ecef7a3798c4683f40324988f/addarray.c
 
 deletearray [https://github.com/prachigitam/19ECB132/blob/69c986e62a0e654d034dc9e60de2676ef602a219/deletearray.c
+
+singlylinkedlist [https://github.com/prachigitam/19ECB132/blob/9365dc9550729bfb5c0e9c810694a442ace26b45/singlylimkedlist.c
