@@ -11,3 +11,5 @@ add array [https://github.com/prachigitam/19ECB132/blob/ec3ecc03ce766e5ecef7a379
 deletearray [https://github.com/prachigitam/19ECB132/blob/69c986e62a0e654d034dc9e60de2676ef602a219/deletearray.c
 
 singlylinkedlist [https://github.com/prachigitam/19ECB132/blob/9365dc9550729bfb5c0e9c810694a442ace26b45/singlylimkedlist.c
+
+doublylinkedlist [https://github.com/prachigitam/19ECB132/blob/85b79062b21f0e4eb9afef580f98edb91c86e6c2/doublylinkedlist.c
