@@ -23,3 +23,6 @@ void preOrder(struct  node* root){
         preOrder(root->right);
     }
 }
+
+output:-
+    4 1 5 2 6 
