@@ -1,7 +1,7 @@
 # include <stdio.h>
 int main(void) {
-  int input[10] = {10, 9, 8, 7, 6, 5, 1, 2, 3, 4};
-  // Elements are hard coded
+  int input[10] = {10, 9, 8, 7, 6, 5, 1, 2, 3, 18};
+  
 
   for (int i=1; i<10; i++) {
     int element = input[i];
@@ -20,6 +20,4 @@ int main(void) {
 }
 /*
 Elements after sorting are ...
-1   2   3   4   5   6   7   8   9   10  ~/19ECB132-14$ 
-
-*/
+1   2   3   5   6   7   8   9   10  18 */
