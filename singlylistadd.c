@@ -35,3 +35,29 @@ void beginsert(int item)
         }  
           
     }  
+/*
+output:-
+Enter the item which you want to insert?
+6
+
+Node inserted
+
+Press 0 to insert more ?
+0
+
+Enter the item which you want to insert?
+1
+
+Node inserted
+
+Press 0 to insert more ?
+0
+
+Enter the item which you want to insert?
+9
+
+Node inserted
+
+Press 0 to insert more ?
+9
+*/
