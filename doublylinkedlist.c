@@ -1,243 +1,164 @@
-#include<stdio.h>  
-#include<stdlib.h>  
-struct node  
-{  
-    struct node *prev;  
-    struct node *next;  
-    int data;  
-};  
-struct node *head;  
-void insertion_beginning();  
-void insertion_last();  
-void deletion_beginning();  
-void deletion_last();  
-void display();  
-void search();  
-void main ()
-{  
-int choice =0;  
-    while(choice != 9)  
-    {  
-        printf("\n*********Main Menu*********\n");  
-        printf("\nChoose one option from the following list ...\n");  
-        printf("\n===============================================\n");  
-        printf("\n1.Insert in Beginning\n2.Insert at last\n3.Delete from Beginning\n4.Delete from last\n5.Search\n6.Show\n7.Exit\n");  
-        printf("\nEnter your choice?\n");  
-        scanf("\n%d",&choice);  
-        switch(choice)  
-        {  
-            case 1:  
-            insertion_beginning();  
-            break;  
-            case 2:  
-                    insertion_last();  
-            break;  
-            case 3:  
-            deletion_beginning();  
-            break;  
-            case 4:  
-            deletion_last();  
-            break;  
-            case 5:  
-            search();  
-            break;  
-            case 6:  
-            display();  
-            break;  
-            case 7:  
-            exit(0);  
-            break;  
-            default:  
-            printf("Please enter valid choice..");  
-        }  
-    }  
-}  
-void insertion_beginning()  
-{  
-   struct node *ptr,*temp;   
-   int item;  
-   ptr = (struct node *)malloc(sizeof(struct node));  
-   if(ptr == NULL)  
-   {  
-       printf("\nOVERFLOW");  
-   }  
-   else  
-   {  
-    printf("\nEnter Item value");  
-    scanf("%d",&item);  
-    ptr->data=item;  
-   if(head==NULL)  
-   {  
-      head = ptr;  
-      ptr -> next = head;   
-      ptr -> prev = head;   
-   }  
-   else   
-   {  
-       temp = head;   
-    while(temp -> next != head)  
-    {  
-        temp = temp -> next;   
-    }  
-    temp -> next = ptr;  
-    ptr -> prev = temp;  
-    head -> prev = ptr;  
-    ptr -> next = head;  
-    head = ptr;  
-   }  
-   printf("\nNode inserted\n");  
-}  
-     
-}  
-void insertion_last()  
-{  
-   struct node *ptr,*temp;  
-   int item;  
-   ptr = (struct node *) malloc(sizeof(struct node));  
-   if(ptr == NULL)  
-   {  
-       printf("\nOVERFLOW");  
-   }  
-   else  
-   {  
-       printf("\nEnter value");  
-       scanf("%d",&item);  
-        ptr->data=item;  
-       if(head == NULL)  
-       {  
-           head = ptr;  
-           ptr -> next = head;   
-           ptr -> prev = head;   
-       }  
-       else  
-       {  
-          temp = head;  
-          while(temp->next !=head)  
-          {  
-              temp = temp->next;  
-          }  
-          temp->next = ptr;  
-          ptr ->prev=temp;  
-          head -> prev = ptr;  
-      ptr -> next = head;  
-        }  
-   }  
-     printf("\nnode inserted\n");  
-}  
-  
-void deletion_beginning()  
-{  
-    struct node *temp;  
-    if(head == NULL)  
-    {  
-        printf("\n UNDERFLOW");  
-    }  
-    else if(head->next == head)  
-    {  
-        head = NULL;   
-        free(head);  
-        printf("\nnode deleted\n");  
-    }  
-    else  
-    {  
-        temp = head;   
-        while(temp -> next != head)  
-        {  
-            temp = temp -> next;  
-        }  
-        temp -> next = head -> next;  
-        head -> next -> prev = temp;  
-        free(head);  
-        head = temp -> next;  
-    }  
-}  
-void deletion_last()  
-{  
-    struct node *ptr;  
-    if(head == NULL)  
-    {  
-        printf("\n UNDERFLOW");  
-    }  
-    else if(head->next == head)  
-    {  
-        head = NULL;   
-        free(head);   
-        printf("\nnode deleted\n");  
-    }  
-    else   
-    {  
-        ptr = head;   
-        if(ptr->next != head)  
-        {  
-            ptr = ptr -> next;   
-        }  
-        ptr -> prev -> next = head;  
-        head -> prev = ptr -> prev;    
-        free(ptr);  
-        printf("\nnode deleted\n");  
-    }  
-}    
-void display()  
-{  
-    struct node *ptr;  
-    ptr=head;  
-    if(head == NULL)  
-    {  
-        printf("\nnothing to print");  
-    }     
-    else  
-    {  
-        printf("\n printing values ... \n");  
-          
-        while(ptr -> next != head)  
-        {  
-          
-            printf("%d\n", ptr -> data);  
-            ptr = ptr -> next;  
-        }  
-        printf("%d\n", ptr -> data);  
-    }  
-              
-}  
-void search()  
-{  
-    struct node *ptr;  
-    int item,i=0,flag=1;  
-    ptr = head;   
-    if(ptr == NULL)  
-    {  
-        printf("\nEmpty List\n");  
-    }  
-    else  
-    {   
-        printf("\nEnter item which you want to search?\n");   
-        scanf("%d",&item);  
-        if(head ->data == item)  
-        {  
-        printf("item found at location %d",i+1);  
-        flag=0;  
-        }  
-        else   
-        {  
-        while (ptr->next != head)  
-        {  
-            if(ptr->data == item)  
-            {  
-                printf("item found at location %d ",i+1);  
-                flag=0;  
-                break;  
-            }   
-            else  
-            {  
-                flag=1;  
-            }  
-            i++;  
-            ptr = ptr -> next;  
-        }  
-        }  
-        if(flag != 0)  
-        {  
-            printf("Item not found\n");  
-        }  
-    }          
-}  
+// A complete working C program to
+// demonstrate all insertion
+// methods
+#include <stdio.h>
+#include <stdlib.h>
+
+// A linked list node
+struct Node {
+	int data;
+	struct Node* next;
+	struct Node* prev;
+};
+
+/* Given a reference (pointer to pointer) to the head of a
+list and an int, inserts a new node on the front of the
+list. */
+void push(struct Node** head_ref, int new_data)
+{
+	/* 1. allocate node */
+	struct Node* new_node
+		= (struct Node*)malloc(sizeof(struct Node));
+
+	/* 2. put in the data */
+	new_node->data = new_data;
+
+	/* 3. Make next of new node as head and previous as NULL
+	*/
+	new_node->next = (*head_ref);
+	new_node->prev = NULL;
+
+	/* 4. change prev of head node to new node */
+	if ((*head_ref) != NULL)
+		(*head_ref)->prev = new_node;
+
+	/* 5. move the head to point to the new node */
+	(*head_ref) = new_node;
+}
+
+/* Given a node as prev_node, insert a new node after the
+* given node */
+void insertAfter(struct Node* prev_node, int new_data)
+{
+	/*1. check if the given prev_node is NULL */
+	if (prev_node == NULL) {
+		printf("the given previous node cannot be NULL");
+		return;
+	}
+
+	/* 2. allocate new node */
+	struct Node* new_node
+		= (struct Node*)malloc(sizeof(struct Node));
+
+	/* 3. put in the data */
+	new_node->data = new_data;
+
+	/* 4. Make next of new node as next of prev_node */
+	new_node->next = prev_node->next;
+
+	/* 5. Make the next of prev_node as new_node */
+	prev_node->next = new_node;
+
+	/* 6. Make prev_node as previous of new_node */
+	new_node->prev = prev_node;
+
+	/* 7. Change previous of new_node's next node */
+	if (new_node->next != NULL)
+		new_node->next->prev = new_node;
+}
+
+/* Given a reference (pointer to pointer) to the head
+of a DLL and an int, appends a new node at the end */
+void append(struct Node** head_ref, int new_data)
+{
+	/* 1. allocate node */
+	struct Node* new_node
+		= (struct Node*)malloc(sizeof(struct Node));
+
+	struct Node* last = *head_ref; /* used in step 5*/
+
+	/* 2. put in the data */
+	new_node->data = new_data;
+
+	/* 3. This new node is going to be the last node, so
+		make next of it as NULL*/
+	new_node->next = NULL;
+
+	/* 4. If the Linked List is empty, then make the new
+		node as head */
+	if (*head_ref == NULL) {
+		new_node->prev = NULL;
+		*head_ref = new_node;
+		return;
+	}
+
+	/* 5. Else traverse till the last node */
+	while (last->next != NULL)
+		last = last->next;
+
+	/* 6. Change the next of last node */
+	last->next = new_node;
+
+	/* 7. Make last node as previous of new node */
+	new_node->prev = last;
+
+	return;
+}
+
+// This function prints contents of linked list starting
+// from the given node
+void printList(struct Node* node)
+{
+	struct Node* last;
+	printf("\nTraversal in forward direction \n");
+	while (node != NULL) {
+		printf(" %d ", node->data);
+		last = node;
+		node = node->next;
+	}
+
+	printf("\nTraversal in reverse direction \n");
+	while (last != NULL) {
+		printf(" %d ", last->data);
+		last = last->prev;
+	}
+}
+
+/* Driver program to test above functions*/
+int main()
+{
+	/* Start with the empty list */
+	struct Node* head = NULL;
+
+	// Insert 6. So linked list becomes 6->NULL
+	append(&head, 6);
+
+	// Insert 7 at the beginning. So linked list becomes
+	// 7->6->NULL
+	push(&head, 7);
+
+	// Insert 1 at the beginning. So linked list becomes
+	// 1->7->6->NULL
+	push(&head, 1);
+
+	// Insert 4 at the end. So linked list becomes
+	// 1->7->6->4->NULL
+	append(&head, 4);
+
+	// Insert 8, after 7. So linked list becomes
+	// 1->7->8->6->4->NULL
+	insertAfter(head->next, 8);
+
+	printf("Created DLL is: ");
+	printList(head);
+
+	getchar();
+	return 0;
+}
+/*
+Created DLL is: 
+Traversal in forward direction 
+ 1  7  8  6  4 
+Traversal in reverse direction 
+ 4  6  8  7  1 */
+
