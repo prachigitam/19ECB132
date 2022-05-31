@@ -11,3 +11,7 @@ int main(void) {
   printf("\nThe number of letters in the given sentence are : %d\n", number_of_letters);
   return 0;
 }
+/*
+Enter a sentence: pool
+
+The number of letters in the given sentence are : 4*/
