@@ -1,47 +1,42 @@
-#include <stdio.h>  
+#include <stdio.h>
+int main()
+{
+   int array[100], position, c, n;
 
-  
-int main ()  
-{  
-    
-    int arr[50];  
-    int pos, i, num;  
-    printf (" \n Enter the number of elements in an array: \n ");  
-    scanf (" %d", &num);  
-      
-    printf (" \n Enter %d elements in array: \n ", num);  
-      
-    
-    for (i = 0; i < num; i++ )  
-    {   printf (" arr[%d] = ", i);  
-        scanf (" %d", &arr[i]);  
-    }  
-      
-    
-    printf( " Define the position of the array element where you want to delete: \n ");  
-    scanf (" %d", &pos);  
-      
-    
-    if (pos >= num+1)  
-    {  
-        printf (" \n Deletion is not possible in the array.");  
-    }  
-    else  
-    {  
-        index;
-        for (i = pos - 1; i < num -1; i++)  
-        {  
-            arr[i] = arr[i+1];   
-        }  
-          
-        printf (" \n The resultant array is: \n");  
-          
-         
-        for (i = 0; i< num - 1; i++)  
-        {  
-            printf (" arr[%d] = ", i);  
-            printf (" %d \n", arr[i]);  
-        }  
-    }  
-    return 0;  
-}  
+   printf("Enter number of elements in array\n");
+   scanf("%d", &n);
+
+   printf("Enter %d elements\n", n);
+
+   for (c = 0; c < n; c++)
+      scanf("%d", &array[c]);
+
+   printf("Enter the location where you wish to delete element\n");
+   scanf("%d", &position);
+
+   if (position >= n+1)
+      printf("Deletion not possible.\n");
+   else
+   {
+      for (c = position - 1; c < n - 1; c++)
+         array[c] = array[c+1];
+
+      printf("Resultant array:\n");
+
+      for (c = 0; c < n - 1; c++)
+         printf("%d\n", array[c]);
+   }
+
+   return 0;
+}/*
+Enter number of elements in array
+4
+Enter 4 elements
+4 5 6 7 
+Enter the location where you wish to delete element
+3
+Resultant array:
+4
+5
+7*/
+        
