@@ -1,74 +1,100 @@
-
-
 #include <stdio.h>
 #include <stdlib.h>
-
+ 
+/* 
 struct node {
-  int item;
-  struct node* left;
-  struct node* right;
+    int data;
+    struct node* left;
+    struct node* right;
 };
-
-// Inorder traversal
-void inorderTraversal(struct node* root) {
-  if (root == NULL) return;
-  inorderTraversal(root->left);
-  printf("%d ->", root->item);
-  inorderTraversal(root->right);
+ 
+/*
+struct node* newNode(int data)
+{
+    struct node* node
+        = (struct node*)malloc(sizeof(struct node));
+    node->data = data;
+    node->left = NULL;
+    node->right = NULL;
+ 
+    return (node);
 }
-
-// preorderTraversal traversal
-void preorderTraversal(struct node* root) {
-  if (root == NULL) return;
-  printf("%d ->", root->item);
-  preorderTraversal(root->left);
-  preorderTraversal(root->right);
+ 
+/* Given a binary tree, print its nodes according to the
+  "bottom-up" postorder traversal. */
+void printPostorder(struct node* node)
+{
+    if (node == NULL)
+        return;
+ 
+    // first recur on left subtree
+    printPostorder(node->left);
+ 
+    // then recur on right subtree
+    printPostorder(node->right);
+ 
+    // now deal with the node
+    printf("%d ", node->data);
 }
-
-// postorderTraversal traversal
-void postorderTraversal(struct node* root) {
-  if (root == NULL) return;
-  postorderTraversal(root->left);
-  postorderTraversal(root->right);
-  printf("%d ->", root->item);
+ 
+/* Given a binary tree, print its nodes in inorder*/
+void printInorder(struct node* node)
+{
+    if (node == NULL)
+        return;
+ 
+    /* first recur on left child */
+    printInorder(node->left);
+ 
+    /* then print the data of node */
+    printf("%d ", node->data);
+ 
+    /* now recur on right child */
+    printInorder(node->right);
 }
-
-
-struct node* createNode(value) {
-  struct node* newNode = malloc(sizeof(struct node));
-  newNode->item = value;
-  newNode->left = NULL;
-  newNode->right = NULL;
-
-  return newNode;
+ 
+/* Given a binary tree, print its nodes in preorder*/
+void printPreorder(struct node* node)
+{
+    if (node == NULL)
+        return;
+ 
+    /* first print data of node */
+    printf("%d ", node->data);
+ 
+    /* then recur on left subtree */
+    printPreorder(node->left);
+ 
+    /* now recur on right subtree */
+    printPreorder(node->right);
 }
-
-// Insert on the left of the node
-struct node* insertLeft(struct node* root, int value) {
-  root->left = createNode(value);
-  return root->left;
+ 
+/* Driver program to test above functions*/
+int main()
+{
+    struct node* root = newNode(1);
+    root->left = newNode(2);
+    root->right = newNode(3);
+    root->left->left = newNode(4);
+    root->left->right = newNode(5);
+ 
+    printf("\nPreorder traversal of binary tree is \n");
+    printPreorder(root);
+ 
+    printf("\nInorder traversal of binary tree is \n");
+    printInorder(root);
+ 
+    printf("\nPostorder traversal of binary tree is \n");
+    printPostorder(root);
+ 
+    getchar();
+    return 0;
 }
+/*
+Preorder traversal of binary tree is 
+1 2 4 5 3 
+Inorder traversal of binary tree is 
+4 2 5 1 3 
+Postorder traversal of binary tree is 
+4 5 2 3 1 */
 
-// Insert on the right of the node
-struct node* insertRight(struct node* root, int value) {
-  root->right = createNode(value);
-  return root->right;
-}
-
-int main() {
-  struct node* root = createNode(1);
-  insertLeft(root, 12);
-  insertRight(root, 9);
-
-  insertLeft(root->left, 5);
-  insertRight(root->left, 6);
-
-  printf("Inorder traversal \n");
-  inorderTraversal(root);
-
-  printf("\nPreorder traversal \n");
-  preorderTraversal(root);
-
-  printf("\nPostorder traversal \n");
-  postorderTraversal(root);
-}
