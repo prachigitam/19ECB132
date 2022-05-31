@@ -1,19 +1,31 @@
 #include<stdio.h>
+
 int main()
 {
-  int arr[100];
-  int i,x,p,n=10;
-  for(i=0;i<10;i++)
-    arr[i]=i+1;
-  for(i=0;i<n;i++)
-    printf("%d",arr[i]);
-  printf("\n");
-  x=20;
-  n++;
-  for(i-n-1;i<n;i++)
-    arr[i]=arr[i-1];
-  arr[p-1]=x;
-  for(i=0;i<n;i++)
-    printf("%d",arr[i]);
-  printf("/n");
-  }
+   
+    int arr[100], size, i, sum = 0;
+    
+    
+    printf("Enter array size\n");
+    scanf("%d",&size);
+    
+    
+    printf("Enter array elements\n");
+    for(i = 0; i < size; i++)
+          scanf("%d",&arr[i]);
+          
+    
+    for(i = 0; i < size; i++)
+          sum = sum + arr[i]; 
+    
+    
+    printf("Sum of the array = %d\n",sum);
+    
+    return 0;
+}
+/*
+Enter array size
+3
+Enter array elements
+1 2 3
+Sum of the array = 6*/
