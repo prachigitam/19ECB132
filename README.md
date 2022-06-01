@@ -9,5 +9,6 @@
 [lettercount.c](lettercount.c)   
 [modifyingarray.c](modifyingarray.c)   
 [singlylinkedlist.c](singlylinkedlist.c)   
-[largstelement.c](largestelement.c)
+[largstelement.c](largestelement.c)   
+[smallestelement.c](smallestelement.c)
 
