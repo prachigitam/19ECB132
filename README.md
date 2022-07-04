@@ -11,5 +11,6 @@
 [singlylinkedlist.c](singlylinkedlist.c)   
 [largstelement.c](largestelement.c)   
 [smallestelement.c](smallestelement.c)   
-[swapping.c](swapping.c)
+[swapping.c](swapping.c)   
+[inorder.c](inorder.c)
 
